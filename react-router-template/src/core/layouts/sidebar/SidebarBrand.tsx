@@ -1,29 +1,35 @@
-import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from './Sidebar';
+import { cn } from '@/shared/lib';
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from './Sidebar';
 import template from '@/assets/template_logo.png';
 
 export function SidebarBrand() {
+  const { state } = useSidebar();
+  const isCollapsed = state === 'collapsed';
+
   return (
     <SidebarMenu>
       <SidebarMenuItem>
         <SidebarMenuButton
           size="lg"
-          className="cursor-default hover:bg-transparent hover:text-inherit active:bg-transparent dark:hover:bg-transparent dark:active:bg-transparent"
-          render={
-            <div>
-              <div className="flex aspect-square size-10 items-center justify-center rounded-lg">
-                <img src={template} alt="template Logo" className="size-9" />
-              </div>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate uppercase font-medium text-gray-900 dark:text-gray-100">
-                  Project Template
-                </span>
-                <span className="truncate text-xs text-gray-500 dark:text-gray-400">
-                  Start - Build - Ship
-                </span>
-              </div>
+          className={cn(
+            'cursor-default hover:bg-transparent active:bg-transparent',
+            isCollapsed && 'justify-center'
+          )}
+        >
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-lg">
+            <img src={template} alt="Project Template Logo" className="size-8" />
+          </div>
+          {!isCollapsed && (
+            <div className="grid flex-1 text-left text-sm leading-tight">
+              <span className="truncate uppercase font-medium text-sidebar-foreground">
+                Project Template
+              </span>
+              <span className="truncate text-xs text-sidebar-foreground/60">
+                Start · Build · Ship
+              </span>
             </div>
-          }
-        ></SidebarMenuButton>
+          )}
+        </SidebarMenuButton>
       </SidebarMenuItem>
     </SidebarMenu>
   );

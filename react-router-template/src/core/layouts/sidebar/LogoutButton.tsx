@@ -33,8 +33,9 @@ export function LogoutButton() {
             'flex cursor-pointer items-center',
             isCollapsed ? 'justify-center' : 'justify-between',
             'w-full rounded-xl',
-            'bg-muted text-muted-foreground',
-            'hover:bg-accent hover:text-accent-foreground',
+            'border border-white/20',
+            'bg-white/6 text-sidebar-foreground/80',
+            'hover:bg-rose-500/20 hover:text-rose-300 hover:border-rose-500/40',
             'transition-colors duration-200',
             'px-5 py-6'
           )}
