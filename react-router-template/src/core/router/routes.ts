@@ -1,10 +1,10 @@
 import type { RouteObject } from 'react-router';
-import { authMiddleware } from '../middlewares/auth.middleware';
+// import { authMiddleware } from '../middlewares/auth.middleware';
 
 export const routes: RouteObject[] = [
   {
     id: 'root',
-    middleware: [authMiddleware],
+    // middleware: [authMiddleware],
     HydrateFallback: () => null,
     lazy: async () => {
       const { default: RootLayout } = await import('../layouts');

@@ -1,6 +1,6 @@
 import type { ApiRoles } from '@/shared/types';
 import type { LucideIcon } from 'lucide-react';
-import { Building2, CircleUser } from 'lucide-react';
+import { Building2, Sparkles } from 'lucide-react';
 
 export type SidebarMenuItemConfig = {
   title: string;
@@ -14,7 +14,7 @@ const SIDEBAR_MENU: SidebarMenuItemConfig[] = [
   {
     title: 'Demo',
     url: '/demo',
-    icon: CircleUser,
+    icon: Sparkles,
   },
   {
     title: 'test',

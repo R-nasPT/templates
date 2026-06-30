@@ -69,6 +69,7 @@ export const initKeycloak = async (): Promise<boolean> => {
 };
 
 export function logoutFromKeycloak() {
+  if (!isInitialized) return;
   keycloak.logout({
     redirectUri: window.location.origin,
   });
